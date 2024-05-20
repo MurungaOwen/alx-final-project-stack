@@ -15,6 +15,21 @@ class Db{
         this.host = HOST;
     }
 
+    async getUserWithEmail(email) {
+        // get user based on email
+        const db = this.client.db(this.database);
+        const userCollection = db.collection('users');
+        return await userCollection.findOne({email});
+    }
+
+    async createUser(email, password, role) {
+        // create a new user
+        const db = this.client.db(this.database);
+        const userCollection = db.collection('users');
+        return await userCollection.insertOne({email, password, role});
+    }
+
 }
+
 const DbClient = new Db();
 module.exports = DbClient;
