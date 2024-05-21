@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+const { ObjectId } = require("mongodb")
 import redisClient from '../utils/redis';
 import DbClient from '../utils/db';
 
@@ -44,23 +45,49 @@ export async function Login(req, res) {
     if (scheme !== 'Basic') return res.status(400).json({error: 'Invalid encoding scheme'});
 
     const decoded = Buffer.from(encoded, 'base64').toString('utf8');
-    const [ email, password ] = decoded.split(':');
+    const [ phonenumber, password ] = decoded.split(':');
 
-    const user = await DbClient.getUserWithEmail(email);
-    if (!user) return res.status(404).json({error: 'User with the email does not exist'});
+    const user = await DbClient.getUserWithPhone(phonenumber);
+    if (!user) return res.status(404).json({error: 'User with the details is not registered'});
 
     const loginHash = DbClient.encryptPassword(password);
-    if (!(loginHash === user.ops[0].password)) return res.status(401).json({error: 'Wrong password'});
+    if (!(loginHash === user.password)) return res.status(401).json({error: 'Wrong password'});
 
     const token = v4();
     const redisKey = `Auth_${token}`;
-    const redisValue = user.ops[0]._id.toString();
+    const redisValue = user._id.toString();
     await redisClient.set(redisKey, redisValue, 120000);
 
-    return res.status(201).json({message: 'Login succesfull'});
+    return res.status(201).json({message: 'Login succesfull', token});
 }
 
 export async function ChangeUserPassword(req, res){
-    // TODO: change user password: token needs to be extracted to update data
     const { oldpassword, newPassword } = req.body;
+    const token = req.headers['x-token'];
+
+    if(!token) return res.status(403).send({"error": "missing Token"})
+
+    
+    // compare passwords
+    try{
+        const userID = await redisClient.get(`Auth_${token}`);
+        if (!userID) return res.status(403).json({"error": "Invalid credentials"});
+
+        const user = await DbClient.getUserWithId(userID);
+        if(!user) return res.status(403).send({"error": "User Not found"});
+
+        const passwordMatch = await DbClient.checkPassword(user.phonenumber, oldpassword)
+        if(!passwordMatch) {
+            return res.status(403).json({"error": "Incorrect password"});
+        }
+        // update user password
+        user.password = DbClient.encryptPassword(newPassword);
+        user.updated_at = new Date();
+        await DbClient.updateValue({_id: ObjectId(user._id)}, user);
+        return res.status(201).json({success: "password updated successfully"})
+
+    } catch(error) {
+        return res.status(500).json({"error": error})
+    }
+    
 }
