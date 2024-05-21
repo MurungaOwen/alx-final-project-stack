@@ -49,7 +49,7 @@ export async function Login(req, res) {
     const user = await DbClient.getUserWithEmail(email);
     if (!user) return res.status(404).json({error: 'User with the email does not exist'});
 
-    const loginHash = hashpassword(password);
+    const loginHash = DbClient.encryptPassword(password);
     if (!(loginHash === user.ops[0].password)) return res.status(401).json({error: 'Wrong password'});
 
     const token = v4();
