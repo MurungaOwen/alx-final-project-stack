@@ -1,12 +1,6 @@
-const dbClient = require('../utils/db');
-const crypto = require('crypto');
+import DbClient from '../utils/db';
 
-function encryptPassword(password) {
-    const sha1 = crypto.createHash('sha1');
-    sha1.update(password);
-    const hashedPassword = sha1.digest('hex');
-    return hashedPassword;
-}
+const dbClient = require('../utils/db');
 
 export async function RegisterUser(req, res){
     // TODO: find if user already exists and if not add them to db
@@ -27,10 +21,9 @@ export async function RegisterUser(req, res){
         const exists = await dbClient.getUserWithPhone(phonenumber);
 
         if (!exists) {
-            const hashedPassword = encryptPassword(password)
+            const hashedPassword = dbClient.encryptPassword(password);
             const newUser = await dbClient.createUser(firstname, lastname, phonenumber, hashedPassword, role);
-            console.log(`new User: ${newUser.ops}`)
-            return res.status(201).send({"email": email, "id": newUser.ops._id});
+            return res.status(201).send({"phonenumber": phonenumber, "id": newUser.ops[0]._id});
         }
         // user exists
         return res.status(400).send({"error": "User with the phone number is already registerd"});
@@ -38,4 +31,9 @@ export async function RegisterUser(req, res){
     } catch (error) {
         return res.status(500).send({"error": "can\'t process your request at the moment"});
     }
+}
+
+export async function ChangeUserPassword(req, res){
+    // TODO: change user password: token needs to be extracted to update data
+    const { oldpassword, newPassword } = req.body;
 }
