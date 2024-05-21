@@ -19,14 +19,14 @@ class Db{
         // get user based on email
         const db = this.client.db(this.database);
         const userCollection = db.collection('users');
-        return await userCollection.findOne({email});
+        return await userCollection.findOne({email: email});
     }
 
     async createUser(email, password, role) {
         // create a new user
         const db = this.client.db(this.database);
         const userCollection = db.collection('users');
-        return await userCollection.insertOne({email, password, role});
+        return await userCollection.insertOne({email: email, password: password, role: role});
     }
 
 }

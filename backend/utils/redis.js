@@ -1,5 +1,6 @@
 const  redis = require('redis');
 
+
 class RedisCache{
     constructor() {
         this.client = redis.createClient();
@@ -17,6 +18,7 @@ class RedisCache{
             });
         });
     }
+
 
     async set(key, value, durationInSeconds) {
         // set value for a key and also time for expiry
