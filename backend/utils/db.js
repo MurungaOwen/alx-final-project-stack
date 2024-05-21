@@ -1,5 +1,5 @@
 const { MongoClient, ObjectId } = require('mongodb');
-
+const crypto = require('crypto');
 // get environmental variables
 const HOST = process.env.DB_HOST || 'localhost';
 const PORT = process.env.DB_PORT || '27017';
@@ -15,18 +15,37 @@ class Db{
         this.host = HOST;
     }
 
-    async getUserWithEmail(email) {
-        // get user based on email
+    async getUserWithPhone(phonenumber) {
+        // get user based on phone number
         const db = this.client.db(this.database);
         const userCollection = db.collection('users');
-        return await userCollection.findOne({email: email});
+        return await userCollection.findOne({phonenumber});
     }
 
-    async createUser(email, password, role) {
+    async createUser(firstname, lastname, phonenumber, password, role) {
         // create a new user
         const db = this.client.db(this.database);
         const userCollection = db.collection('users');
-        return await userCollection.insertOne({email: email, password: password, role: role});
+        return await userCollection.insertOne({
+            firstname, lastname, phonenumber, password, role,
+            created_at: new Date(),
+            updated_at: new Date()
+        });
+    }
+
+    encryptPassword(password) {
+        const hash = crypto.createHash('sha256');
+        hash.update(password);
+        return hash.digest('hex');
+    }
+
+    async checkPassword(phonenumber, password) {
+        // match the phone number with password
+        const db = this.client.db(this.database);
+        const userCollection = db.collection('users');
+        // return true if passwords match
+        const user = userCollection.findOne({phonenumber});
+        return this.encryptPassword(password) === user.password
     }
 
 }
