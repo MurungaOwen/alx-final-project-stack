@@ -15,18 +15,22 @@ class Db{
         this.host = HOST;
     }
 
-    async getUserWithEmail(email) {
-        // get user based on email
+    async getUserWithPhone(phonenumber) {
+        // get user based on phone number
         const db = this.client.db(this.database);
         const userCollection = db.collection('users');
-        return await userCollection.findOne({email});
+        return await userCollection.findOne({phonenumber});
     }
 
-    async createUser(email, password, role) {
+    async createUser(firstname, lastname, phonenumber, password, role) {
         // create a new user
         const db = this.client.db(this.database);
         const userCollection = db.collection('users');
-        return await userCollection.insertOne({email, password, role});
+        return await userCollection.insertOne({
+            firstname, lastname, phonenumber, password, role,
+            created_at: new Date(),
+            updated_at: new Date()
+        });
     }
 
 }
