@@ -1,8 +1,7 @@
 import { v4 } from 'uuid';
-const { ObjectId } = require("mongodb")
-import redisClient from '../utils/redis';
-import DbClient from '../utils/db';
-
+import { ObjectId } from 'mongodb';
+import redisClient from '../utils/redis.js';
+import DbClient from '../utils/db.js';
 
 
 export async function RegisterUser(req, res){

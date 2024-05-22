@@ -1,4 +1,4 @@
-const  redis = require('redis');
+import redis from 'redis';
 
 
 class RedisCache{
@@ -49,4 +49,4 @@ class RedisCache{
 }
 
 const redisClient = new RedisCache();
-module.exports = redisClient;
+export default redisClient;

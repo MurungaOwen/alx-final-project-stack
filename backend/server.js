@@ -1,7 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
+import routes from './routes/main.js';
+
 const app = express();
-const routes = require('./routes/main');
 
 const PORT = process.env.PORT || 5000;
 
