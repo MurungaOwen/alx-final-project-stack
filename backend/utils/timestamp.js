@@ -2,7 +2,7 @@ function parseDate(val) {
     return (val < 10) ? "0" + val : val;
 }
 
-function getTimestamp() {
+export const getTimestamp = ()=>{
 
     const dateString  = new Date().toLocaleString("en-us", {timeZone: "Africa/Nairobi"});
     const dateObject = new Date(dateString);
@@ -11,8 +11,5 @@ function getTimestamp() {
     const hour = parseDate(dateObject.getHours());
     const minute = parseDate(dateObject.getMinutes());
     const second = parseDate(dateObject.getSeconds());
-    return dateObject.getFullYear() + "" + month + "" + day + "" +
-        hour + "" + minute + "" + second;
+    return dateObject.getFullYear() + "" + month + "" + day + "" + hour + "" + minute + "" + second;
 }
-
-export default getTimestamp;
