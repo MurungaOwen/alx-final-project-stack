@@ -1,7 +1,8 @@
 import { v4 } from 'uuid';
 import { ObjectId } from 'mongodb';
 import redisClient from '../utils/redis.js';
-import DbClient from '../utils/db.js';
+import userModel from '../models/userModel.js';
+import { encryptPassword } from '../utils/encrypto.js';
 
 
 export async function RegisterUser(req, res){
@@ -20,11 +21,11 @@ export async function RegisterUser(req, res){
         return res.status(400).send({"error": "Enter password"});
     }
     try {
-        const exists = await DbClient.getUserWithPhone(phonenumber);
+        const exists = await userModel.getUserWithPhone(phonenumber);
 
         if (!exists) {
-            const hashedPassword = DbClient.encryptPassword(password);
-            const newUser = await DbClient.createUser(firstname, lastname, phonenumber, hashedPassword, role);
+            const hashedPassword = encryptPassword(password);
+            const newUser = await userModel.createUser(firstname, lastname, phonenumber, hashedPassword, role);
             return res.status(201).send({"phonenumber": phonenumber, "id": newUser.ops[0]._id});
         }
         // user exists
@@ -46,10 +47,10 @@ export async function Login(req, res) {
     const decoded = Buffer.from(encoded, 'base64').toString('utf8');
     const [ phonenumber, password ] = decoded.split(':');
 
-    const user = await DbClient.getUserWithPhone(phonenumber);
+    const user = await userModel.getUserWithPhone(phonenumber);
     if (!user) return res.status(404).json({error: 'User with the details is not registered'});
 
-    const loginHash = DbClient.encryptPassword(password);
+    const loginHash = encryptPassword(password);
     if (!(loginHash === user.password)) return res.status(401).json({error: 'Wrong password'});
 
     const token = v4();
@@ -57,9 +58,8 @@ export async function Login(req, res) {
     const redisValue = user._id.toString();
     await redisClient.set(redisKey, redisValue, 120000);
 
-    return res.status(201).json({message: 'Login succesfull', token});
+    return res.status(201).json({message: 'Login succesfull', token: token});
 }
-
 export async function ChangeUserPassword(req, res){
     const { oldpassword, newPassword } = req.body;
     const token = req.headers['x-token'];
@@ -72,17 +72,17 @@ export async function ChangeUserPassword(req, res){
         const userID = await redisClient.get(`Auth_${token}`);
         if (!userID) return res.status(403).json({"error": "Invalid credentials"});
 
-        const user = await DbClient.getUserWithId(userID);
+        const user = await userModel.getUserWithId(userID);
         if(!user) return res.status(403).send({"error": "User Not found"});
 
-        const passwordMatch = await DbClient.checkPassword(user.phonenumber, oldpassword)
+        const passwordMatch = await userModel.checkPassword(user.phonenumber, oldpassword)
         if(!passwordMatch) {
             return res.status(403).json({"error": "Incorrect password"});
         }
         // update user password
-        user.password = DbClient.encryptPassword(newPassword);
+        user.password = encryptPassword(newPassword);
         user.updated_at = new Date();
-        await DbClient.updateValue({_id: ObjectId(user._id)}, user);
+        await userModel.updateValue({_id: ObjectId(user._id)}, user);
         return res.status(201).json({success: "password updated successfully"})
 
     } catch(error) {
