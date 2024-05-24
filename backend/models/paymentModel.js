@@ -1,17 +1,40 @@
 import { getDatabase } from "../utils/db";
-import { ObjectId } from "bson";
-
 
 class Payment{
     constructor() {
         this.collectionName = 'payment';
     }
 
-    async makePayment(userPhone, amount, rentalID) {
-        const db = getDatabase();
+    async addPayment(mpesaCode, Amount, PhoneNumber, house) {
+        const db = getDatabase()
         const collection = db.collection(this.collectionName);
-        const pay_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpushquery/v1/query';
-        
+        return await collection.insertOne({
+            mpesaCode,
+            Amount,
+            PhoneNumber,
+            house,
+            paid_at: new Date()
+        })
     }
 
+    async getUserPaymentDetails(PhoneNumber) {
+        const db = getDatabase()
+        const collection = db.collection(this.collectionName);
+        return await collection.findone({PhoneNumber})
+    }
+
+    async getPaymentWithrentalID(rentalID) {
+        const db = getDatabase()
+        const collection = db.collection(this.collectionName);
+        return await collection.findone({rentalID})
+    }
+
+    async updatePaymentData(idObject, updatedObject) {
+        const db = getDatabase();
+        const collection = db.collection(this.collectionName);
+        return await collection.replaceOne(idObject, updatedObject);
+    }
 }
+
+const paymentModel = new Payment()
+export default paymentModel;

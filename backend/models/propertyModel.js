@@ -7,7 +7,7 @@ class PropertyModel {
         this.collectionName = 'properties';
     }
 
-    async createProperty(propertyName, ownerId, details = '', created_at, updated_at) {
+    async createProperty(propertyName, ownerId, details = '') {
         const db = getDatabase();
         const collection = db.collection(this.collectionName);
         return await collection.insertOne({
