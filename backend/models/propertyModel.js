@@ -1,4 +1,4 @@
-import { getDatabase } from "../utils/db";
+import { getDatabase } from "../utils/db.js";
 import { ObjectId } from "bson";
 
 

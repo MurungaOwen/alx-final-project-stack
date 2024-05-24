@@ -1,4 +1,4 @@
-import { getDatabase } from "../utils/db";
+import { getDatabase } from "../utils/db.js";
 
 class Payment{
     constructor() {
@@ -23,10 +23,10 @@ class Payment{
         return await collection.findone({PhoneNumber})
     }
 
-    async getPaymentWithrentalID(rentalID) {
+    async getPaymentWithHouse(house) {
         const db = getDatabase()
         const collection = db.collection(this.collectionName);
-        return await collection.findone({rentalID})
+        return await collection.findone({house})
     }
 
     async updatePaymentData(idObject, updatedObject) {
