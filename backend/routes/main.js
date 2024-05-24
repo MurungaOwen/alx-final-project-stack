@@ -7,7 +7,7 @@ import { generateToken, handleStkPush } from '../controllers/paymentController.j
 const router = express.Router();
 
 router.post('/register', RegisterUser) // register new User
-router.post('/login', Login)
+router.post('/login', Login);
 router.post('/changepassword', ChangeUserPassword) // change passwd
 
 
@@ -25,7 +25,6 @@ router.get('/api/rentals/:rentalId', getRentalById);
 router.put('/api/rentals/:rentalId', updateRental);
 router.delete('/api/rentals/:rentalId', deleteRental);
 
-router.post('/pay', generateToken, handleStkPush) // generate token then push stk
-router.post('/processpayment', processPayment)
+router.post('/pay', generateToken, handleStkPush); // generate token then push stk
 
 export default router;
