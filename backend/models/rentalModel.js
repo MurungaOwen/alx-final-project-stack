@@ -19,6 +19,12 @@ class RentalModel {
         });
     }
 
+    async getAll() {
+        const db = getDatabase();
+        const collection = db.collection(this.collectionName);
+        return await collection.find();
+    }
+
     async getRentalWithId(rentalId) {
         const db = getDatabase();
         const collection = db.collection(this.collectionName);
