@@ -19,6 +19,12 @@ class PropertyModel {
         });
     }
 
+    async getAll() {
+        const db = getDatabase();
+        const collection = db.collection(this.collectionName);
+        return await collection.find();
+    }
+
     async getPropertyWithId(propertyId) {
         const db = getDatabase();
         const collection = db.collection(this.collectionName);
