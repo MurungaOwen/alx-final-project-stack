@@ -20,3 +20,4 @@ app.listen(app.get('port'), ()=>{
 
 app.use('/', routes);
 
+export default app
