@@ -17,6 +17,7 @@
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
     "@babel/register": "^7.23.7",
+    "@types/chai-http": "^4.2.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-node": "^0.0.1-security",
