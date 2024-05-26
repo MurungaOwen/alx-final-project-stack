@@ -1,4 +1,4 @@
-import { getDatabase } from "../utils/db";
+import { getDatabase } from "../utils/db.js";
 import { ObjectId } from "bson";
 
 
@@ -7,7 +7,7 @@ class RentalModel {
         this.collectionName = 'rentals';
     }
 
-    async createRental(rentalName, propertyId, units = [], created_at, updated_at) {
+    async createRental(rentalName, propertyId, units = []) {
         const db = getDatabase();
         const collection = db.collection(this.collectionName);
         return await collection.insertOne({
