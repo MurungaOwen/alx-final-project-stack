@@ -4,6 +4,7 @@ import { createProperty, getAllProperties, getPropertyById,updateProperty,delete
 import { createRental, getAllRentals, getRentalById, updateRental, deleteRental } from '../controllers/rentalController.js';
 import { generateToken, handleStkPush, processPayment } from '../controllers/paymentController.js';
 
+
 const router = express.Router();
 
 router.post('/register', RegisterUser) // register new User
