@@ -3,7 +3,7 @@ import { RegisterUser, Login, ChangeUserPassword} from '../controllers/usersCont
 import { createProperty, getAllProperties, getPropertyById,updateProperty,deleteProperty } from '../controllers/propertyController.js';
 import { createRental, getAllRentals, getRentalById, updateRental, deleteRental } from '../controllers/rentalController.js';
 import { generateToken, handleStkPush, processPayment } from '../controllers/paymentController.js';
-
+import { createMaintenance, deleteMaintenance, getMaintenanceOfRental, updateMaintenance, userMaintenance } from '../controllers/maintainanceController.js';
 
 const router = express.Router();
 
@@ -29,5 +29,12 @@ router.delete('/api/rentals/:rentalId', deleteRental);
 // payment routes
 router.post('/api/pay', generateToken, handleStkPush); // generate token then push stk
 router.post('/api/pay/process', processPayment);
+
+// maintenance routes
+router.post('/api/maintenance/create', createMaintenance);
+router.delete('/api/maintenance/:maintenanceID', deleteMaintenance);
+router.put('/api/maintenance/:maintenanceID', updateMaintenance);
+router.get('/api/maintenance/mine', userMaintenance);
+router.get('/api/maintenance/all/:rentalID', getMaintenanceOfRental);
 
 export default router;

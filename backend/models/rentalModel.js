@@ -7,13 +7,14 @@ class RentalModel {
         this.collectionName = 'rentals';
     }
 
-    async createRental(rentalName, propertyId, units = []) {
+    async createRental(rentalName, propertyId, units = [], price_per_month) {
         const db = getDatabase();
         const collection = db.collection(this.collectionName);
         return await collection.insertOne({
             rentalName,
             propertyId: ObjectId(propertyId),
             units,
+            price_per_month,
             created_at: new Date(),
             updated_at: new Date()
         });

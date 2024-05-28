@@ -27,6 +27,7 @@ export async function handleStkPush (req, res) {
 
 export async function processPayment(req, res) {
   const callbackData = req.body;
+  console.log("here",callbackData)
   // Process the callback data as needed
   if (callbackData.Body && callbackData.Body.stkCallback) {
     const stkCallback = callbackData.Body.stkCallback;

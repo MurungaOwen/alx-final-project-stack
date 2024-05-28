@@ -1,12 +1,13 @@
 import rentalModel from '../models/rentalModel.js';
 
 export async function createRental(req, res) {
-    const { rentalName, propertyId} = req.body;
+    const { rentalName, propertyId, price} = req.body;
 
     if (!rentalName) return res.status(400).json({error: 'Missing rental name'});
     if (!propertyId) return res.status(400).json({error: 'Missing property id'});
+    if (!price) return res.status(400).json({error: 'Missing price per month'});
 
-    const newRental = await rentalModel.createRental(rentalName, propertyId);
+    const newRental = await rentalModel.createRental(rentalName, propertyId, price);
 
     if (newRental) return res.status(201).json({rentalId: newRental._id});
 }
