@@ -1,14 +1,12 @@
 import axios from "axios";
-import 'dotenv/config';
 import getTimestamp from "./time.js";
+import 'dotenv/config';
 
 export async function getMpesaToken(){
     const CONSUMER_KEY = process.env.MPESA_CONSUMER_KEY;
     const CONSUMER_SECRET = process.env.MPESA_CONSUMER_SECRET;
     const URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-    const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString(
-        "base64"
-    );
+    const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString("base64");
 
     const response = await axios.get(URL, {
         headers: {
@@ -32,14 +30,15 @@ export async function stkPush(amount, phone, token) {
         Timestamp: getTimestamp(),
         TransactionType: "CustomerPayBillOnline",
         Amount: amount,
-        PartyA: phone, // tenant number
+        PartyA: phone,// tenant number
         PartyB: BUSINESS_SHORT_CODE, // owners number but we use this to test
         PhoneNumber: phone, // tenants nnumber still
-        CallBackURL: `${HOST}/api/pay/process`, // where to send data after 
+        CallBackURL: `${HOST}/api/pay/process`, // where to send data after
         // for callback url im using; ngrok for free https
         AccountReference: "Rafiki rent payment",
         TransactionDesc: "Rafiki",
     };
+    console.log(payload.CallBackURL) 
 
     const response = await axios.post(
         "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",

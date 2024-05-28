@@ -8,6 +8,7 @@ export async function createMaintenance(req, res){
     const token = req.headers['x-token'];
     try{
         const userID = await redisClient.get(`Auth_${token}`);
+        if (!userID) return res.status(403).json({message:"please log in"})
         const user = await userModel.getUserWithId(userID);
         const userPhone = user.phonenumber;
         const newMaintenance = await maintenanceModel.createMaintenance(userPhone,rentalID ,description);

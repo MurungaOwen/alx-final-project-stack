@@ -6,7 +6,6 @@ import { encryptPassword } from '../utils/encrypto.js';
 
 
 export async function RegisterUser(req, res){
-    // TODO: find if user already exists and if not add them to db
     const { firstname, lastname, phonenumber, password, role} = req.body;
     if(!firstname || !lastname) {
         return res.status(400).send({"error": "Enter both names"});
@@ -26,12 +25,13 @@ export async function RegisterUser(req, res){
         if (!exists) {
             const hashedPassword = encryptPassword(password);
             const newUser = await userModel.createUser(firstname, lastname, phonenumber, hashedPassword, role);
-            return res.status(201).send({"phonenumber": phonenumber, "id": newUser.ops[0]._id});
+            return res.status(201).json({"phonenumber": phonenumber, "id": newUser.insertedId});
         }
         // user exists
-        return res.status(400).send({"error": "User with the phone number is already registerd"});
+        return res.status(400).send({"error": "User with the phone number is already registered"});
 
     } catch (error) {
+        console.log(error)
         return res.status(500).send({"error": "can\'t process your request at the moment"});
     }
 }
@@ -46,19 +46,23 @@ export async function Login(req, res) {
 
     const decoded = Buffer.from(encoded, 'base64').toString('utf8');
     const [ phonenumber, password ] = decoded.split(':');
-
-    const user = await userModel.getUserWithPhone(phonenumber);
-    if (!user) return res.status(404).json({error: 'User with the details is not registered'});
-
-    const loginHash = encryptPassword(password);
-    if (!(loginHash === user.password)) return res.status(401).json({error: 'Wrong password'});
-
-    const token = v4();
-    const redisKey = `Auth_${token}`;
-    const redisValue = user._id.toString();
-    await redisClient.set(redisKey, redisValue, 120000);
-
-    return res.status(201).json({message: 'Login succesfull', token: token});
+    try{
+        const user = await userModel.getUserWithPhone(phonenumber);
+        if (!user) return res.status(404).json({error: 'User with the details is not registered'});
+    
+        const loginHash = encryptPassword(password);
+        if (!(loginHash === user.password)) return res.status(401).json({error: 'Wrong password'});
+    
+        const token = v4();
+        const redisKey = `Auth_${token}`;
+        const redisValue = user._id.toString();
+        await redisClient.set(redisKey, redisValue, 120000);
+    
+        return res.status(201).json({message: 'Login succesfull', token: token});
+    } catch(err){
+        return res.status(400).json({message: "error processing request"});
+    }
+    
 }
 export async function ChangeUserPassword(req, res){
     const { oldpassword, newPassword } = req.body;

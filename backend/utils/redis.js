@@ -1,9 +1,8 @@
-import redis from 'redis';
-
+import { getRedisDb } from './db.js';
 
 class RedisCache{
-    constructor() {
-        this.client = redis.createClient();
+    constructor(client) {
+        this.client = client;
     }
 
     async get(key){
@@ -48,5 +47,5 @@ class RedisCache{
     
 }
 
-const redisClient = new RedisCache();
+const redisClient = new RedisCache(getRedisDb());
 export default redisClient;

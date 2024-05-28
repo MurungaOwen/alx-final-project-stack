@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes/main.js';
+import { connectToDatabase, connectToRedis} from './utils/db.js';
 import 'dotenv/config';
 
 const app = express();
@@ -14,8 +15,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
-app.listen(app.get('port'), ()=>{
-    console.log("Backend running on port ", PORT);
+app.listen(app.get('port'), async () => {
+    try {
+        await connectToDatabase();
+        await connectToRedis(); // Connect to Redis
+        console.log("Backend running on port ", PORT);
+    } catch (error) {
+        console.error('Failed to start server:', error);
+        process.exit(1); // Exit the process with an error code
+    }
 });
 
 app.use('/', routes);

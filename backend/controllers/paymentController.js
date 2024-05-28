@@ -7,10 +7,9 @@ export async function generateToken (req, res, next ) {
     next(); // execute next controller
 
   } catch (error) {
-    throw new Error(`Failed to generate access token: ${error.message}`);
+    throw new Error(`Failed to generate access token: ${error}`);
   }
 };
-
 
 export async function handleStkPush (req, res) {
   const { phone, amount } = req.body;
@@ -20,7 +19,7 @@ export async function handleStkPush (req, res) {
     res.status(201).json({ message: true, data: response.ResponseDescription });
 
   } catch (error) {
-    res.status(500).json({ message: "Failed", error: error.message});
+    res.status(500).json({ message: "Failed", error: error});
   }
 }
 
@@ -39,7 +38,7 @@ export async function processPayment(req, res) {
       const phone = callbackMetadata.Item[3].Value;
       return res.status(200).json({ success: true});
     }
-    return res.status(403).json({ error: "payment incomplete" });
+    return res.status(400).json({ error: "payment incomplete" });
   }
-  return res.status(403).json({"error": "payment incomplete"});
+  return res.status(400).json({"error": "payment incomplete"});
 }
