@@ -1,0 +1,6 @@
+nav a:hover{
+    --tw-text-opacity: 1;
+    text-decoration: underline;
+    text-decoration-color: rgb(126 34 206 / var(--tw-text-opacity));
+    transition: 4s ease-in-out;
+}
