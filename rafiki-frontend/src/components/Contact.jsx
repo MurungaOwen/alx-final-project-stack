@@ -2,11 +2,11 @@ import React from 'react';
 
 const ContactForm = () => {
   return (
-    <div className="flex flex-row items-center justify-center min-h-screen bg-purple-400">
-      <div className="image-container w-1/2 overflow-hidden lg:block hidden">
+    <div className="flex flex-row items-center justify-center min-h-screen">
+      <div className="image-container w-1/2 overflow-hidden lg:block hidden  bg-purple-400">
         <img
           className="object-cover w-full h-full"
-          src="/in"
+          src="/hero.svg"
           alt="Contact Us"
         />
       </div>
