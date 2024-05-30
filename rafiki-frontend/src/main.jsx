@@ -5,12 +5,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./styles/index.css";
+import UserRegistration from './pages/Register';
 import LandingPage from './pages/Landing';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage/>,
+  },
+  {
+    path: "/register",
+    element: <UserRegistration/>,
   },
 
 ]);
