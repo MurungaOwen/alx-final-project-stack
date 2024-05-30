@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<svg width="505.46625" height="596.94537" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" data-name="Layer 1">
+ <g class="layer">
+  <title>Layer 1</title>
+  <path d="m706.73,652.47l5,96s-211.49,-201.29 -237.84,-260.19s23.25,-204.59 23.25,-204.59l110.04,60.45l99.55,308.33z" fill="#9f616a" id="svg_1" transform="translate(-347.26688 -151.52732)"/>
+  <path d="m382.45,243.4l-32.55,3.1s-17.05,37.19 35.65,40.29l-3.1,-43.39z" fill="#9f616a" id="svg_2" transform="translate(-347.26688 -151.52732)"/>
+  <path d="m382.45,300.74l-32.55,3.1s-17.05,37.2 35.65,40.3l-3.1,-43.4z" fill="#9f616a" id="svg_3" transform="translate(-347.26688 -151.52732)"/>
+  <path d="m382.45,362.74l-32.55,3.1s-17.05,37.2 35.65,40.3l-3.1,-43.4z" fill="#9f616a" id="svg_4" transform="translate(-347.26688 -151.52732)"/>
+  <path d="m391.75,424.74l-32.55,3.1s-17.05,37.19 35.65,40.29l-3.1,-43.39z" fill="#9f616a" id="svg_5" transform="translate(-347.26688 -151.52732)"/>
+  <path d="m366.6,258.34l2.47,0l0,-67.66a39.16,39.16 0 0 1 39.16,-39.15l143.33,0a39.16,39.16 0 0 1 39.16,39.15l0,371.17a39.16,39.16 0 0 1 -39.16,39.16l-143.33,0a39.16,39.16 0 0 1 -39.16,-39.16l0,-255.35l-2.47,0l0,-48.16z" fill="#3f3d56" id="svg_6" transform="translate(-347.26688 -151.52732)"/>
+  <path d="m59.38,10.18l18.71,0a13.89,13.89 0 0 0 12.86,19.14l82.12,0a13.89,13.89 0 0 0 12.86,-19.14l17.48,0a29.24,29.24 0 0 1 29.24,29.25l0,370.62a29.24,29.24 0 0 1 -29.24,29.24l-144.03,0a29.24,29.24 0 0 1 -29.24,-29.24l0,0l0,-370.62a29.24,29.24 0 0 1 29.24,-29.25z" fill="#fff" id="svg_7"/>
+  <rect fill="#6d45c3" height="14.89" id="svg_8" width="61.72" x="100.54" y="114.02"/>
+  <rect fill="#e5e5e5" height="14.89" id="svg_9" width="67.59" x="97.6" y="178.01"/>
+  <rect fill="#e5e5e5" height="25.89" id="svg_10" transform="matrix(1 0 0 1 0 0)" width="162.86" x="55.97" y="210"/>
+  <path d="m852.73,702.47l-173.48,-197.91l-6.2,-127.1l-65.09,-108.49l-18.6,-46.5s-43.4,4.65 -7.75,93l14.72,47.27l0,0a216.67,216.67 0 0 0 -20.15,91.24l0,108.33c0,25.5 121.55,164.44 135.7,185.66l0,0l140.85,-45.5z" fill="#9f616a" id="svg_12" transform="translate(-347.26688 -151.52732)"/>
+  <polygon id="svg_13" opacity="0.2" points="247.195 126.636 260.136 120.276 259.695 119.378 247.738 125.255 229.688 77.932 228.754 78.289 247.195 126.636"/>
+  <rect height="20.43" id="svg_14" opacity="0.2" transform="translate(-346.65612 349.39987) rotate(-69.7779)" width="1" x="358.98" y="239.81"/>
+  <rect height="20.43" id="svg_15" opacity="0.2" transform="translate(-401.08099 387.35158) rotate(-69.7779)" width="1" x="358.98" y="297.81"/>
+  <rect height="20.43" id="svg_16" opacity="0.2" transform="translate(-459.25929 427.92066) rotate(-69.7779)" width="1" x="358.98" y="359.81"/>
+  <rect height="10.35" id="svg_17" opacity="0.2" transform="translate(-528.7721 421.49849) rotate(-64.36101)" width="1" x="364.07" y="425.56"/>
+  <circle cx="131.47" cy="342.18" fill="#6d45c3" id="svg_18" r="43.23"/>
+  <polygon fill="#fff" id="svg_19" points="127.351 360.424 114.413 343.787 121.937 337.935 128.063 345.812 148.76 323.964 155.681 330.521 127.351 360.424"/>
+  <text fill="#7f00ff" font-family="Monospace" font-size="20" id="svg_20" stroke-width="0" style="cursor: move;" text-anchor="middle" transform="matrix(1 0 0 1 0 0) matrix(0.88453 0 0 1 433.995 116)" x="-339.12" xml:space="preserve" y="174.05">repairs are done</text>
+  <text fill="#7f00ff" font-family="Monospace" font-size="20" id="svg_22" stroke-width="0" text-anchor="middle" transform="matrix(0.689528 0 0 0.861838 -100.222 -30.6332)" x="346.98" xml:space="preserve" y="300.21">check other requests</text>
+ </g>
+</svg>
