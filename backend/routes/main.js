@@ -7,8 +7,8 @@ import { createMaintenance, deleteMaintenance, getMaintenanceOfRental, updateMai
 
 const router = express.Router();
 
-router.post('/register', RegisterUser) // register new User
-router.post('/login', Login);
+router.post('/api/register', RegisterUser) // register new User
+router.post('/api/login', Login);
 router.post('/changepassword', ChangeUserPassword) // change passwd
 
 

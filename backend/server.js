@@ -3,8 +3,10 @@ import bodyParser from 'body-parser';
 import routes from './routes/main.js';
 import { connectToDatabase, connectToRedis} from './utils/db.js';
 import 'dotenv/config';
+import cors from 'cors';
 
 const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
