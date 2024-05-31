@@ -7,6 +7,8 @@ import {
 import "./styles/index.css";
 import UserRegistration from './pages/Register';
 import LandingPage from './pages/Landing';
+import Dashboard from './pages/Dashboard';
+import TenantDashboard from './pages/TenantDash';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,14 @@ const router = createBrowserRouter([
     path: "/register",
     element: <UserRegistration/>,
   },
-
+  {
+    path: "/dashboard",
+    element: <Dashboard/>
+  },
+  {
+    path: "/tenant",
+    element: <TenantDashboard />
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
