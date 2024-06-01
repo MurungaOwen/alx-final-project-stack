@@ -38,7 +38,7 @@ export async function RegisterUser(req, res){
 
 export async function Login(req, res) {
     const authHeader = req.headers['authorization'];
-
+    
     if (!authHeader) return res.status(401).json({error: 'Missing Authorisation header'});
 
     const [ scheme, encoded ] = authHeader.split(' ');
@@ -58,7 +58,7 @@ export async function Login(req, res) {
         const redisValue = user._id.toString();
         await redisClient.set(redisKey, redisValue, 120000);
     
-        return res.status(201).json({message: 'Login succesfull', token: token});
+        return res.status(201).json({message: 'Login succesfull', token: token, role: user.role});
     } catch(err){
         return res.status(400).json({message: "error processing request"});
     }

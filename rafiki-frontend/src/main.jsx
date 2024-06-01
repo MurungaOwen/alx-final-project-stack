@@ -9,6 +9,7 @@ import UserRegistration from './pages/Register';
 import LandingPage from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import TenantDashboard from './pages/TenantDash';
+import UserLogin from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <UserRegistration/>,
+  },
+  {
+    path: "/login",
+    element: <UserLogin/>,
   },
   {
     path: "/dashboard",

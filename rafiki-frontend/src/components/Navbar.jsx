@@ -67,8 +67,8 @@ export default function Navbar() {
                     <a href="#" className="text-gray-600">More <span className="m-1">+</span></a>
                 </div>
                 <div className="hidden md:flex">
-                    <button className="bg-white text-gray-800 border border-gray-800 px-4 py-2 mr-2">Log In</button>
-                    <button className="bg-purple-600 text-white px-4 py-2">Sign Up</button>
+                    <a href="/login" className="bg-white text-gray-800 border border-gray-800 px-4 py-2 mr-2">Log In</a>
+                    <a href="/register" className="bg-purple-600 text-white px-4 py-2">Sign Up</a>
                 </div>
                 <div className="md:hidden">
                     <button onClick={toggleMenu} className="text-gray-800">

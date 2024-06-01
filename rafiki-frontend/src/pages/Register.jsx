@@ -1,6 +1,6 @@
-// src/components/UserRegistration.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+import axiosInstance from '../api';
 
 const UserRegistration = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ const UserRegistration = () => {
   });
 
   const [message, setMessage] = useState(null);
+  const [isRegistered, setIsRegistered] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +27,7 @@ const UserRegistration = () => {
     setMessage(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/register', {
+      const response = await axiosInstance.post('/register', {
         firstname: formData.firstName,
         lastname: formData.lastName,
         phonenumber: formData.phoneNumber,
@@ -34,11 +35,16 @@ const UserRegistration = () => {
         role: formData.role,
       });
       setMessage({ type: 'success', text: 'Registration successful!' });
-      console.log(response.data);
+      setIsRegistered(true); // Set registration state to true on success
     } catch (error) {
-      setMessage({ type: 'error', text: "error logging in"});
+      setMessage({ type: 'error', text: 'Check details provided' });
     }
   };
+
+  // Redirect to the login page if registration is successful
+  if (isRegistered) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div className="min-h-screen bg-purple-100 flex items-center justify-center p-4">
@@ -49,7 +55,7 @@ const UserRegistration = () => {
         <div className="w-full md:w-1/2 p-8">
           <h2 className="text-3xl font-bold mb-8 text-purple-700 text-center">User Registration</h2>
           {message && (
-            <div className={`mb-4 text-center ${message.type === 'success' ? ' bg-green-100 p-2' : 'bg-red-100 p-2'}`}>
+            <div className={`mb-4 text-center ${message.type === 'success' ? 'bg-green-100 p-2' : 'bg-red-100 p-2'}`}>
               {message.text}
             </div>
           )}
