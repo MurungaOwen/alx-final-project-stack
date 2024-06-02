@@ -13,7 +13,7 @@ class UserModel {
         return await userCollection.findOne({ phonenumber });
     }
 
-    async createUser(firstname, lastname, phonenumber, password, role) {
+    async createUser(firstname, lastname, phonenumber, password, role, salt) {
         const db = getDatabase();
         const userCollection = db.collection(this.collectionName);
         const encryptedPassword = encryptPassword(password);
@@ -23,6 +23,7 @@ class UserModel {
         phonenumber,
         password: encryptedPassword,
         role,
+        salt,
         created_at: new Date(),
         updated_at: new Date()
         });

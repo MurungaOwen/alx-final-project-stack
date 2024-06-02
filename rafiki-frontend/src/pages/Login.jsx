@@ -24,28 +24,26 @@ const UserLogin = () => {
     e.preventDefault();
     setMessage(null);
 
-    // Use btoa to encode phone number and password to base64
-    const authHeader = `Basic ${btoa(`${formData.phoneNumber}:${formData.password}`)}`;
-
     try {
-      const response = await axiosInstance.post('/login', null, {
-        headers: {
-          Authorization: authHeader,
-        },
+      const response = await axiosInstance.post('/login', {
+        phonenumber: formData.phoneNumber,
+        password: formData.password,
       });
-
+      console.log('Response:', response); // Log the response for debugging
       const token = response.data.token; // Assuming the token is returned in the response
       localStorage.setItem('token', token); // Store the token in local storage
       setMessage({ type: 'success', text: 'Login successful!' });
       setIsLoggedIn(true); // Set login state to true on success
-      if (response.data.role === "owner") setIsTenant(false);
-
+      if (response.data.role === "owner") {
+        setIsTenant(false);
+      }
     } catch (error) {
+      console.log('Error:', error); // Log the error for debugging
       setMessage({ type: 'error', text: 'Check credentials and retry' });
     }
   };
 
-  // Redirect to the respective dashboard if logged in
+  // Redirect to the dashboard if logged in
   if (isLoggedIn && !isTenant) {
     return <Navigate to="/dashboard" />;
   } else if (isLoggedIn) {
