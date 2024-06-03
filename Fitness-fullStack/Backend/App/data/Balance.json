@@ -1,0 +1,30 @@
+{
+    "id": 4,
+    "name": "Balance Exercises",
+    "description": "Balance exercises help prevent falls and maintain independence, especially in older adults. They focus on improving stability and coordination.",
+    "exercise_types": [
+      {
+        "id": 1,
+        "name": "Standing on One Leg",
+        "weight": 50,
+        "instructions": [
+          "Stand on one leg while keeping your knee slightly bent.",
+          "Hold the position for 10-30 seconds, then switch legs.",
+          "Focus on a spot in front of you to help maintain balance.",
+          "Repeat as desired."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Heel-to-Toe Walk",
+        "weight": 50,
+        "instructions": [
+          "Position your heel directly in front of the toes of your other foot.",
+          "Walk in a straight line, placing one foot in front of the other with each step.",
+          "Keep your arms out to the sides for balance, and maintain a steady pace.",
+          "Repeat for a set distance or duration."
+        ]
+      }
+    ]
+  }
+  

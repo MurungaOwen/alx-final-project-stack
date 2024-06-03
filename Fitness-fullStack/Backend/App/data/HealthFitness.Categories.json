@@ -1,0 +1,161 @@
+[{
+  "_id": {
+    "$oid": "663140b35fc020071bf7a22c"
+  },
+  "id": 2,
+  "name": "Strength Training",
+  "description": "Strength exercises, also called 'strength training' or 'resistance training', help build up your muscles and bones, reducing the risk of weak bones and slouching.",
+  "exercise_types": [
+    {
+      "id": 1,
+      "name": "Push-ups",
+      "weight": 50,
+      "instructions": [
+        "Start in a plank position with your hands shoulder-width apart.",
+        "Lower your body until your chest nearly touches the floor, then push back up.",
+        "Engage your core and keep your body in a straight line throughout the movement.",
+        "Repeat for the desired number of repetitions."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Squats",
+      "weight": 30,
+      "instructions": [
+        "Stand with your feet shoulder-width apart, toes pointed slightly outward.",
+        "Lower your body by bending your knees and pushing your hips back as if sitting in a chair.",
+        "Keep your chest up and back straight, and lower until your thighs are parallel to the ground.",
+        "Push through your heels to return to the starting position."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Dumbbell Curls",
+      "weight": 20,
+      "instructions": [
+        "Stand with a dumbbell in each hand, arms fully extended at your sides.",
+        "Curl the weights toward your shoulders while keeping your elbows close to your body.",
+        "Squeeze your biceps at the top of the movement, then lower the weights back down with control.",
+        "Repeat for the desired number of repetitions."
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "663140c15fc020071bf7a22d"
+  },
+  "id": 3,
+  "name": "Flexibility",
+  "description": "Flexibility exercises stretch your muscles and help your body stay limber, improving range of motion, posture, and circulation.",
+  "exercise_types": [
+    {
+      "id": 1,
+      "name": "Hamstring Stretch",
+      "weight": 30,
+      "instructions": [
+        "Sit on the floor with one leg extended and the other bent.",
+        "Lean forward from your hips until you feel a stretch in the back of your thigh.",
+        "Hold the stretch for 15-30 seconds, then switch legs.",
+        "Repeat as desired."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Shoulder Stretch",
+      "weight": 30,
+      "instructions": [
+        "Stand tall with your feet hip-width apart.",
+        "Bring one arm across your body and use your other hand to gently pull it closer to your chest.",
+        "Hold the stretch for 15-30 seconds, then switch arms.",
+        "Repeat as desired."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Cobra Stretch",
+      "weight": 40,
+      "instructions": [
+        "Lie face down on the floor with your palms near your shoulders.",
+        "Press into your hands to lift your chest off the floor, keeping your hips and legs relaxed.",
+        "Hold the stretch for 15-30 seconds, then lower back down.",
+        "Repeat as desired."
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "663140cd5fc020071bf7a22e"
+  },
+  "id": 1,
+  "name": "Endurance",
+  "description": "Endurance, or aerobic exercise, increases your breathing and heart rate. By doing endurance exercises, you are working to keep your heart, lungs, and circulatory system healthy while improving your total fitness.",
+  "exercise_types": [
+    {
+      "id": 1,
+      "name": "Dancing",
+      "weight": 20,
+      "instructions": [
+        "Start with a warm-up by stretching your muscles.",
+        "Move your body to the rhythm of the music, incorporating different dance styles.",
+        "Focus on keeping a steady pace and breathing rhythmically.",
+        "Cool down with some gentle stretches."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Swimming",
+      "weight": 40,
+      "instructions": [
+        "Warm up by swimming a few laps at a slow pace.",
+        "Increase your intensity by swimming faster or using different strokes.",
+        "Continue for a set duration or distance.",
+        "Cool down with some easy laps and stretching."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Cycling",
+      "weight": 40,
+      "instructions": [
+        "Adjust your bike seat to the correct height.",
+        "Start pedaling at a moderate pace, focusing on smooth, even strokes.",
+        "Gradually increase your speed or resistance.",
+        "Cool down with a slower pace and stretching."
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "663140d95fc020071bf7a22f"
+  },
+  "id": 4,
+  "name": "Balance Exercises",
+  "description": "Balance exercises help prevent falls and maintain independence, especially in older adults. They focus on improving stability and coordination.",
+  "exercise_types": [
+    {
+      "id": 1,
+      "name": "Standing on One Leg",
+      "weight": 50,
+      "instructions": [
+        "Stand on one leg while keeping your knee slightly bent.",
+        "Hold the position for 10-30 seconds, then switch legs.",
+        "Focus on a spot in front of you to help maintain balance.",
+        "Repeat as desired."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Heel-to-Toe Walk",
+      "weight": 50,
+      "instructions": [
+        "Position your heel directly in front of the toes of your other foot.",
+        "Walk in a straight line, placing one foot in front of the other with each step.",
+        "Keep your arms out to the sides for balance, and maintain a steady pace.",
+        "Repeat for a set distance or duration."
+      ]
+    }
+  ]
+}]

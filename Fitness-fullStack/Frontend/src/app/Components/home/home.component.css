@@ -1,0 +1,63 @@
+/* home.component.css */
+.container {
+  padding: 20px;
+}
+
+.featured-workouts-container {
+  margin-bottom: 30px;
+}
+
+.workout-scroll-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.workout-card {
+  flex: 0 0 calc(33.333% - 20px);
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.workout-info {
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.workout-info h3 {
+  margin-top: 0;
+}
+
+.workout-gif {
+  overflow: hidden;
+}
+
+.workout-gif img {
+  width: 100%;
+  height: auto;
+}
+
+.select-body-part-container {
+  text-align: center;
+}
+
+.body-part-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.body-part-button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+}
+
+.body-part-button:hover {
+  background-color: darkred;
+}

@@ -1,0 +1,41 @@
+{
+    "id": 1,
+    "name": "Endurance",
+    "description": "Endurance, or aerobic exercise, increases your breathing and heart rate. By doing endurance exercises, you are working to keep your heart, lungs, and circulatory system healthy while improving your total fitness.",
+    "exercise_types": [
+      {
+        "id": 1,
+        "name": "Dancing",
+        "weight": 20,
+        "instructions": [
+          "Start with a warm-up by stretching your muscles.",
+          "Move your body to the rhythm of the music, incorporating different dance styles.",
+          "Focus on keeping a steady pace and breathing rhythmically.",
+          "Cool down with some gentle stretches."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Swimming",
+        "weight": 40,
+        "instructions": [
+          "Warm up by swimming a few laps at a slow pace.",
+          "Increase your intensity by swimming faster or using different strokes.",
+          "Continue for a set duration or distance.",
+          "Cool down with some easy laps and stretching."
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Cycling",
+        "weight": 40,
+        "instructions": [
+          "Adjust your bike seat to the correct height.",
+          "Start pedaling at a moderate pace, focusing on smooth, even strokes.",
+          "Gradually increase your speed or resistance.",
+          "Cool down with a slower pace and stretching."
+        ]
+      }
+    ]
+  }
+  

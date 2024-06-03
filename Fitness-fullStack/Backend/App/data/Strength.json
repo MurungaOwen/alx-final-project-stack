@@ -1,0 +1,41 @@
+{
+    "id": 2,
+    "name": "Strength Training",
+    "description": "Strength exercises, also called 'strength training' or 'resistance training', help build up your muscles and bones, reducing the risk of weak bones and slouching.",
+    "exercise_types": [
+      {
+        "id": 1,
+        "name": "Push-ups",
+        "weight": 50,
+        "instructions": [
+          "Start in a plank position with your hands shoulder-width apart.",
+          "Lower your body until your chest nearly touches the floor, then push back up.",
+          "Engage your core and keep your body in a straight line throughout the movement.",
+          "Repeat for the desired number of repetitions."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Squats",
+        "weight": 30,
+        "instructions": [
+          "Stand with your feet shoulder-width apart, toes pointed slightly outward.",
+          "Lower your body by bending your knees and pushing your hips back as if sitting in a chair.",
+          "Keep your chest up and back straight, and lower until your thighs are parallel to the ground.",
+          "Push through your heels to return to the starting position."
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Dumbbell Curls",
+        "weight": 20,
+        "instructions": [
+          "Stand with a dumbbell in each hand, arms fully extended at your sides.",
+          "Curl the weights toward your shoulders while keeping your elbows close to your body.",
+          "Squeeze your biceps at the top of the movement, then lower the weights back down with control.",
+          "Repeat for the desired number of repetitions."
+        ]
+      }
+    ]
+  }
+  

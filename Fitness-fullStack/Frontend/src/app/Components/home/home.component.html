@@ -1,0 +1,66 @@
+<div class="container">
+
+<!-- Fitness Program Section -->
+<div class="fitness-program-container">
+  <h2>Fitness Program</h2>
+  <button class="create-program-button" (click)="createFitnessProgram()">Create Fitness Program</button>
+  <button class="edit-programs-button" (click)="loadFitnessPrograms()">View Programs</button>
+  <div *ngIf="creatingProgram">
+    <h3>Create New Program</h3>
+    <form (submit)="saveFitnessProgram()">
+      <label for="programName">Program Name:</label>
+      <input type="text" id="programName" name="programName" [(ngModel)]="newProgramName" required>
+      <label for="hoursPerWeek">Hours Per Week:</label>
+      <input type="number" id="hoursPerWeek" name="hoursPerWeek" [(ngModel)]="hoursPerWeek" required>
+      <label for="daysPerWeek">Days Per Week:</label>
+      <input type="number" id="daysPerWeek" name="daysPerWeek" [(ngModel)]="daysPerWeek" required>
+      <label for="bodyPart">Body Part:</label>
+      <select id="bodyPart" name="bodyPart" [(ngModel)]="selectedBodyPart" required>
+        <option *ngFor="let part of bodyParts" [value]="part">{{ part }}</option>
+      </select>
+      <button type="submit">Save Program</button>
+    </form>
+  </div>
+  <div *ngIf="fitnessPrograms">
+    <div *ngFor="let program of fitnessPrograms">
+      <p><strong>Body Part:</strong> {{ program.bodyPart }}</p>
+      <p><strong>Program Name:</strong> {{ program.programName }}</p>
+      <p><strong>Hours Per Week:</strong> {{ program.hoursPerWeek }}</p>
+      <p><strong>Days Per Week:</strong> {{ program.daysPerWeek }}</p>
+      <button (click)="deleteFitnessProgram(program)">Delete Program</button>
+    </div>
+  </div>
+</div>
+
+ 
+  
+
+
+  <!-- Select Body Part Section -->
+  <div class="select-body-part-container">
+    <h2>Select Body Part</h2>
+    <div class="body-part-list">
+      <button *ngFor="let part of bodyParts" class="body-part-button" (click)="changeBodyPart(part)">
+        {{ part }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Featured Workouts Section -->
+  <div class="featured-workouts-container">
+    <h2>Featured Workouts</h2>
+    <div class="workout-scroll-container">
+      <div *ngFor="let workout of featuredWorkouts" class="workout-card">
+        <div class="workout-info">
+          <h3>{{ workout.name }}</h3>
+          <p><strong>Body Part:</strong> {{ workout.bodyPart }}</p>
+          <p><strong>Muscles Worked:</strong> {{ workout.secondaryMuscles.join(', ') }}</p>
+        </div>
+        <div class="workout-gif">
+          <img [src]="workout.gifUrl" alt="{{ workout.name }}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

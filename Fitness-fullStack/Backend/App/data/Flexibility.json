@@ -1,0 +1,41 @@
+{
+    "id": 3,
+    "name": "Flexibility",
+    "description": "Flexibility exercises stretch your muscles and help your body stay limber, improving range of motion, posture, and circulation.",
+    "exercise_types": [
+      {
+        "id": 1,
+        "name": "Hamstring Stretch",
+        "weight": 30,
+        "instructions": [
+          "Sit on the floor with one leg extended and the other bent.",
+          "Lean forward from your hips until you feel a stretch in the back of your thigh.",
+          "Hold the stretch for 15-30 seconds, then switch legs.",
+          "Repeat as desired."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Shoulder Stretch",
+        "weight": 30,
+        "instructions": [
+          "Stand tall with your feet hip-width apart.",
+          "Bring one arm across your body and use your other hand to gently pull it closer to your chest.",
+          "Hold the stretch for 15-30 seconds, then switch arms.",
+          "Repeat as desired."
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Cobra Stretch",
+        "weight": 40,
+        "instructions": [
+          "Lie face down on the floor with your palms near your shoulders.",
+          "Press into your hands to lift your chest off the floor, keeping your hips and legs relaxed.",
+          "Hold the stretch for 15-30 seconds, then lower back down.",
+          "Repeat as desired."
+        ]
+      }
+    ]
+  }
+  

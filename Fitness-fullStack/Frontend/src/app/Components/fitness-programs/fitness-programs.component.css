@@ -1,0 +1,36 @@
+/* Style for the fitness programs container */
+.fitness-programs-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style for the fitness program items */
+  .program-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* Style for the edit form within each program item */
+  .program-item input {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  /* Style for the buttons */
+  .program-item button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  /* Style for the buttons on hover */
+  .program-item button:hover {
+    background-color: #0056b3;
+  }
+  

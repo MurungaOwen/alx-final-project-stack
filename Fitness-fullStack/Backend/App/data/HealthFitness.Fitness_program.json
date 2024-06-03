@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "6634d3fcacc90eac9424eba1"
+  },
+  "user_id": "6634b99a51071f21938cd281",
+  "user_email": null,
+  "program_name": "Strength Training",
+  "weights": {
+    "Push-ups": false,
+    "Squats": false,
+    "Dumbbell Curls": false
+  },
+  "progress": 0
+},
+{
+  "_id": {
+    "$oid": "6634f936ba79a16a6a1de112"
+  },
+  "user_id": "6634b78a51071f21938cd27e",
+  "user_email": null,
+  "program_name": "Flexibility",
+  "weights": {
+    "Hamstring Stretch": false,
+    "Shoulder Stretch": false,
+    "Cobra Stretch": false
+  },
+  "progress": 0
+},
+{
+  "_id": {
+    "$oid": "6634fa5bba79a16a6a1de113"
+  },
+  "user_id": "6634b78a51071f21938cd27e",
+  "user_email": null,
+  "program_name": "Balance Exercises",
+  "weights": {
+    "Standing on One Leg": false,
+    "Heel-to-Toe Walk": false
+  },
+  "progress": 0
+},
+{
+  "_id": {
+    "$oid": "6634fe8cba79a16a6a1de115"
+  },
+  "user_id": "6634b75651071f21938cd27d",
+  "user_email": null,
+  "program_name": "Flexibility",
+  "weights": {
+    "Hamstring Stretch": false,
+    "Shoulder Stretch": false,
+    "Cobra Stretch": false
+  },
+  "progress": 0
+},
+{
+  "_id": {
+    "$oid": "6635097a28de5c918108d387"
+  },
+  "user_id": "6634ff1aba79a16a6a1de116",
+  "user_email": null,
+  "program_name": "Flexibility",
+  "weights": {
+    "Hamstring Stretch": false,
+    "Shoulder Stretch": false,
+    "Cobra Stretch": false
+  },
+  "progress": 0
+},
+{
+  "_id": {
+    "$oid": "663540af28de5c918108d38e"
+  },
+  "user_id": "6634b75651071f21938cd27d",
+  "user_email": null,
+  "program_name": "Endurance",
+  "weights": {
+    "Dancing": false,
+    "Swimming": false,
+    "Cycling": false
+  },
+  "progress": 0
+},
+{
+  "_id": {
+    "$oid": "6635416f28de5c918108d38f"
+  },
+  "user_id": "6634b75651071f21938cd27d",
+  "user_email": null,
+  "program_name": "Balance Exercises",
+  "weights": {
+    "Standing on One Leg": false,
+    "Heel-to-Toe Walk": false
+  },
+  "progress": 0
+}]
