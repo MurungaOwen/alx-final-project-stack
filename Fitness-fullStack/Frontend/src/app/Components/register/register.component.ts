@@ -33,7 +33,7 @@ export class RegisterComponent {
       response => {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.router.navigate(['/home']);
+        this.router.navigate(['/login']);
       },
       error => {
         this.errorMessage = error.error.message || 'An error occurred during registration.';

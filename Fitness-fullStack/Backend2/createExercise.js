@@ -9,181 +9,181 @@ const data = [
         name: "Pull-Up",
         bodyPart: "back",
         secondaryMuscles: ["Biceps", "Shoulders"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXZhdTRjNWNqMmlrMGxvOGl1bG9ka2p2d29ia3dldWxxZzh6Njg5NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8NLlhCIQQOBzCGbWjy/giphy.gif"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/11/archer-pull-up.gif"
       },
       {
         name: "Deadlift",
         bodyPart: "back",
         secondaryMuscles: ["Hamstrings", "Glutes"],
-        gifUrl: "https://media.giphy.com/media/xT0xenc4lKQlhf1Ohi/giphy.gif?cid=790b7611200bcvdwe4so66r89j3srsywwnblte1c282ga1gb&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2021/10/how-to-deadlift.gif"
       },
       {
         name: "Bent Over Row",
         bodyPart: "back",
         secondaryMuscles: ["Biceps", "Lats"],
-        gifUrl: "https://media.giphy.com/media/KfTgl5LzZ4PzIZk0ot/giphy.gif?cid=790b7611jvzizupr403vwbxt805rzhdur74q9k3xy678kwnh&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://i.pinimg.com/originals/78/96/d9/7896d944ba4cd105ec876221e692155e.gif"
       },
       {
         name: "Running",
         bodyPart: "cardio",
         secondaryMuscles: ["Legs", "Core"],
-        gifUrl: "https://media.giphy.com/media/kdK6LZGCQxoJGeKPos/giphy.gif?cid=ecf05e47zyl1flt5zabjlhjqqtre9x1tyjwrc9h3yxcl0509&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/run-in-place-exercise-illustration.gif"
       },
       {
         name: "Jump Rope",
         bodyPart: "cardio",
         secondaryMuscles: ["Legs", "Arms"],
-        gifUrl: "https://media.giphy.com/media/13mpq8Az1u5dTy/giphy.gif?cid=790b76113qpmjrqom59mwgjf4p2e6oacz5m6qbs3vwcrx98a&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2023/03/jump-rope.gif"
       },
       {
         name: "Cycling",
         bodyPart: "cardio",
         secondaryMuscles: ["Legs", "Glutes"],
-        gifUrl: "https://media.giphy.com/media/p3qOJa4kAwlEbsKpAH/giphy.gif?cid=790b7611h499uuhgvhpj2xthygnzcrldn7whg9tes2khvmjz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://i.pinimg.com/originals/be/0a/4e/be0a4e1500127ea8ddfbae0335d14d2f.gif"
       },
       {
         name: "Push-Up",
         bodyPart: "chest",
         secondaryMuscles: ["Triceps", "Shoulders"],
-        gifUrl: "https://media.giphy.com/media/UoNdY74noaG5VtE2bv/giphy.gif?cid=790b7611tkrca9hb73saeln4ollen63c56z8sypievng1e8m&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2023/04/reverse-grip-push-ups.gif"
       },
       {
         name: "Bench Press",
         bodyPart: "chest",
         secondaryMuscles: ["Triceps", "Shoulders"],
-        gifUrl: "https://media.giphy.com/media/13Xp7ZZiRU4Hzq/giphy.gif?cid=790b761103sdzsjgw7z5sqh9btz80czmrgerds2181wc9vqz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/05/incline-barbell-bench-press.gif"
       },
       {
         name: "Chest Fly",
         bodyPart: "chest",
         secondaryMuscles: ["Shoulders"],
-        gifUrl: "https://media.giphy.com/media/13Xp7ZZiRU4Hzq/giphy.gif?cid=790b761103sdzsjgw7z5sqh9btz80czmrgerds2181wc9vqz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/04/cable-cross-over.gif"
       },
       {
         name: "Wrist Curl",
         bodyPart: "lower arms",
         secondaryMuscles: ["Forearms"],
-        gifUrl: "https://media.giphy.com/media/6M4ZmZ4ZG6gk4PJnat/giphy.gif?cid=790b76113a4gfesd72kfdqzyy13nxhivqr0cer53dk7fc78t&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://i.pinimg.com/originals/5f/1b/3c/5f1b3cbf305d96c2b5de63519104bf81.gif"
       },
       {
         name: "Reverse Wrist Curl",
         bodyPart: "lower arms",
         secondaryMuscles: ["Forearms"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnJiejc5Njc1dnpmbXU0bGkwMTk3Y2NyemdrMDNpYXkwaTFycWIybyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/RhSifsHdqHrbWVtSJj/giphy.gif"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/08/dumbbell-reverse-curl.gif"
       },
       {
         name: "Hammer Curl",
         bodyPart: "lower arms",
         secondaryMuscles: ["Biceps"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGg4cHl6MmpjdXRpODJpMGh4MWhwem5meDhtODU2ZGdhNm1ueXNvYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/dAy49uNPslC0TmuNa4/giphy.gif"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2023/02/cross-body-hammer-curl.gif"
       },
       {
         name: "Calf Raise",
         bodyPart: "lower legs",
         secondaryMuscles: ["Calves"],
-        gifUrl: "https://media.giphy.com/media/ag3OazmTmNfgFbcq4u/giphy.gif?cid=790b7611ozozl3i1czu714e34krhznycit6h2zi7kpodr27c&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2023/03/dumbbell-calf-raise.gif"
       },
       {
         name: "Seated Calf Raise",
         bodyPart: "lower legs",
         secondaryMuscles: ["Calves"],
-        gifUrl: "https://media.giphy.com/media/6Ne9xjn9l5sSIA5L8F/giphy.gif?cid=790b761179n2knwgaeyligwrempw30g7j9ssu0kvyioyhg1f&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/10/weighted-calf-raise.gif"
       },
       {
         name: "Standing Calf Raise",
         bodyPart: "lower legs",
         secondaryMuscles: ["Calves"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjM2ZDN4cTJpMDQ3M3B2cWExcmJ0a2txZjZzaXV2NTR6ZThzcTlvMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ehL7WCDG3cR4YjfMlX/giphy.gif"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2023/03/cable-standing-calf-raise.gif"
       },
       {
         name: "Neck Flexion",
         bodyPart: "neck",
         secondaryMuscles: ["Traps"],
-        gifUrl: "https://media.giphy.com/media/z3d7DULQGlgPGdR9GI/giphy.gif?cid=790b76118tpw39l8p3hnbeqxmd1nsrrj57lehxedsfkkubl1&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://gymvisual.com/img/p/9/1/7/0/9170.gif"
       },
       {
         name: "Neck Extension",
         bodyPart: "neck",
         secondaryMuscles: ["Traps"],
-        gifUrl: "https://media.giphy.com/media/3o7TKx654t1CNu1OPC/giphy.gif?cid=790b7611hdq9qx47xoljp6xms14hamy9wv1iefuls3g7vr8r&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://i.pinimg.com/originals/17/90/5d/17905dc2fda2f75d7099e41f12695541.gif"
       },
       {
         name: "Neck Lateral Flexion",
         bodyPart: "neck",
         secondaryMuscles: ["Traps"],
-        gifUrl: "https://media.giphy.com/media/3o7TKx654t1CNu1OPC/giphy.gif?cid=790b7611gicku68iy5gfpts64hu9n98j7uhmpz42qhhjs5a1&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://homegymreview.co.uk/wp-content/uploads/exercises/18401101-Neck-Flexor-And-Rotational-Stretch_Neck_max-scaled.jpg"
       },
       {
         name: "Shoulder Press",
         bodyPart: "shoulders",
         secondaryMuscles: ["Triceps"],
-        gifUrl: "https://media.giphy.com/media/1qrNKzsgcZtGMkI4pn/giphy.gif?cid=790b76115tbz7nyy5acddutzf6oj6sql9gktiqhdwnzdngog&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://homeworkouts.org/wp-content/uploads/anim-dumbbell-shoulder-press.gif"
       },
       {
         name: "Lateral Raise",
         bodyPart: "shoulders",
         secondaryMuscles: ["Deltoids"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDF4bmM0dGV3aWw0a2V0dXFkbDBteXpkbjF2bmg4YjQyNDhub3dldyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/rmlERmsODCF0l13Sqe/giphy.gif"
+        gifUrl: "https://i.pinimg.com/originals/6b/54/93/6b54938fc0cbe1ba3b72502dffae901b.gif"
       },
       {
         name: "Front Raise",
         bodyPart: "shoulders",
         secondaryMuscles: ["Deltoids"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjc4a3h2b3pzN3NyaTNycTRubmt3MTlvbXJkcWtrMTZidTRhZTRtaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/38UgQApdrpsxM6HgEF/giphy.gif"
+        gifUrl: "https://www.barbellfrontraise.com/wp-content/uploads/2022/05/how-to-do-a-front-dumbbell-raise-correctly-1.gif"
       },
       {
         name: "Bicep Curl",
         bodyPart: "upper arms",
         secondaryMuscles: ["Forearms"],
-        gifUrl: "https://media.giphy.com/media/bXD1umxvzfu2QAgFAB/giphy.gif?cid=790b7611jsxq7rkahxbekycsgmu9g54q2mj4tbnliq89uy63&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/10/bayesian-curl.gif"
       },
       {
         name: "Tricep Dip",
         bodyPart: "upper arms",
         secondaryMuscles: ["Triceps"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDlubmJxaHU4Z3AzeDhscDZnNXc0bDdvZzYzanMwYTZvMnJ5azVldSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/wKdb2xwADyl3hQZmZh/giphy.gif"
+        gifUrl: "https://i.pinimg.com/originals/e4/29/bb/e429bb7c9759c7415bdb7f7474752dd9.gif"
       },
       {
         name: "Tricep Extension",
         bodyPart: "upper arms",
         secondaryMuscles: ["Triceps"],
-        gifUrl: "https://media.giphy.com/media/W7dBXzbnEpOBG/giphy.gif?cid=ecf05e472ubeag9a24583jycek5536djv9ewn6ldg1aq3v9h&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2021/10/cable-tricep-pushdown.gif"
       },
       {
         name: "Squat",
         bodyPart: "upper legs",
         secondaryMuscles: ["Glutes", "Hamstrings"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGZiYTc1bzRodGlncHc1cnhqa21wMGpweHRjaGxsMWFyZGNxNTkwbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xUPGcJGpd7ALzeLUOY/giphy.gif"
+        gifUrl: "https://homeworkouts.org/wp-content/uploads/anim-dumbbell-goblet-squats.gif"
       },
       {
         name: "Lunge",
         bodyPart: "upper legs",
         secondaryMuscles: ["Glutes", "Quadriceps"],
-        gifUrl: "https://media.giphy.com/media/ddR8T7OIILMK8H2YEh/giphy.gif?cid=790b7611pqhrt016wq2o809qiajlq2yqa4jvsxhx0i11hzkk&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://static.wixstatic.com/media/42934c_243e14e0c86744cab410ffbc0c20ece5~mv2.gif"
       },
       {
         name: "Leg Press",
         bodyPart: "upper legs",
         secondaryMuscles: ["Quadriceps", "Glutes"],
-        gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExems1bXR3aDd0Y2ZxcXpjeGJ0NHUwN2hveDh0ZHl0ZnF2Ym1jNGM2cyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/UIze7SZJbFQ6u4SP6E/giphy.gif"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/03/single-leg-leg-press.gif"
       },
       {
         name: "Crunch",
         bodyPart: "waist",
         secondaryMuscles: ["Abs"],
-        gifUrl: "https://media.giphy.com/media/lOrveiwNUJ8SwxJZuG/giphy.gif?cid=790b7611et2hjrp51x3mww15qfmg7290tuaff24sxswmpkl1&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/01/crunch.gif"
       },
       {
         name: "Plank",
         bodyPart: "waist",
         secondaryMuscles: ["Core"],
-        gifUrl: "https://media.giphy.com/media/LSLA6v5k8K1TvLyYKq/giphy.gif?cid=790b76113pnszo51zymmlerxudvf5cjr4y5lsuxg7j2xnv9k&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2022/01/plank-movement.gif"
       },
       {
         name: "Russian Twist",
         bodyPart: "waist",
         secondaryMuscles: ["Obliques"],
-        gifUrl: "https://media.giphy.com/media/IeqQbwJECfI3GmUmZ5/giphy.gif?cid=790b76112pov6xh829sfxsqcdusiqxg363e2ygk8gf4n3la1&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        gifUrl: "https://www.inspireusafoundation.org/wp-content/uploads/2021/12/how-to-do-a-kettlebell-russian-twist.gif"
       }
       // Add more exercises up to 10 for waist
     ]

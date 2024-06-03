@@ -54,7 +54,7 @@ export async function Login(req, res) {
 
         const response = {
             message: 'Login succesfull',
-            user_id: user._id,
+            user_id: user._id.toString(),
             token: redisKey,
             user: user
         }
