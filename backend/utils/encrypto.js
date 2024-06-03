@@ -11,3 +11,10 @@ export const encryptPassword = (password, salt) => {
     hash.update(password + salt);
     return hash.digest('hex');
 };
+
+export function verifyPassword(password, salt, storedHash) {
+    const hashedPassword = encryptPassword(password, salt);
+    console.log(`hash passwd entered: ${hashedPassword}`);
+    console.log(`hash passwd in db: ${storedHash}`);
+    return hashedPassword === storedHash;
+}

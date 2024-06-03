@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import axiosInstance from '../api';
+import { Base64 } from 'js-base64';
 
 const UserLogin = () => {
   const [formData, setFormData] = useState({
@@ -25,9 +26,11 @@ const UserLogin = () => {
     setMessage(null);
 
     try {
-      const response = await axiosInstance.post('/login', {
-        phonenumber: formData.phoneNumber,
-        password: formData.password,
+      const encodedCredentials = Base64.encode(`${formData.phoneNumber}:${formData.password}`);
+      const response = await axiosInstance.post('/login', '', {
+        headers: {
+          'Authorization': `Basic ${encodedCredentials}`,
+        }
       });
       console.log('Response:', response); // Log the response for debugging
       const token = response.data.token; // Assuming the token is returned in the response
