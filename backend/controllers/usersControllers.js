@@ -2,7 +2,7 @@ import { v4 } from 'uuid';
 import { ObjectId } from 'mongodb';
 import redisClient from '../utils/redis.js';
 import userModel from '../models/userModel.js';
-import { encryptPassword, generateSalt } from '../utils/encrypto.js';
+import { encryptPassword, generateSalt, verifyPassword } from '../utils/encrypto.js';
 
 
 export async function RegisterUser(req, res){
@@ -37,68 +37,67 @@ export async function RegisterUser(req, res){
     }
 }
 
+export async function Login(req, res) {
+    
+    const authHeader = req.headers['authorization'];
+    
+    if (!authHeader) return res.status(401).json({error: 'Missing Authorisation header'});
+
+    const [ scheme, encoded ] = authHeader.split(' ');
+    if (scheme !== 'Basic') return res.status(400).json({error: 'Invalid encoding scheme'});
+
+    const decoded = Buffer.from(encoded, 'base64').toString('utf8');
+    const [ phonenumber, password ] = decoded.split(':');
+    try{
+        const user = await userModel.getUserWithPhone(phonenumber);
+        if (!user) return res.status(404).json({error: 'User with the details is not registered'});
+    
+        //const loginHash = encryptPassword(password, user.salt);
+        //if (!(loginHash === user.password)) return res.status(401).json({error: 'Wrong password'});
+    
+        const token = v4();
+        const redisKey = `Auth_${token}`;
+        const redisValue = user._id.toString();
+        
+        await redisClient.set(redisKey, redisValue, 120000);
+    
+        return res.status(201).json({message: 'Login succesfull', token: token, role: user.role});
+    } catch(err){
+        console.log(`err is ${err}`)
+        return res.status(500).json({message: "error processing request"});
+    }
+    
+}
 // export async function Login(req, res) {
-    
-//     // const authHeader = req.headers['authorization'];
-    
-//     // if (!authHeader) return res.status(401).json({error: 'Missing Authorisation header'});
+//     try {
+//         const { phonenumber, password } = req.body;
 
-//     // const [ scheme, encoded ] = authHeader.split(' ');
-//     // if (scheme !== 'Basic') return res.status(400).json({error: 'Invalid encoding scheme'});
-
-//     // const decoded = Buffer.from(encoded, 'base64').toString('utf8');
-//     // const [ phonenumber, password ] = decoded.split(':');
-//     try{
-//         const {phonenumber, password} = req.body;
 //         const user = await userModel.getUserWithPhone(phonenumber);
-//         if (!user) return res.status(404).json({error: 'User with the details is not registered'});
-    
-//         const loginHash = encryptPassword(password);
-//         if (!(loginHash === user.password)) return res.status(401).json({error: 'Wrong password'});
-    
+//         if (!user) {
+//             console.log('User not found'); // Log if user not found
+//             return res.status(404).json({ error: 'User with the details is not registered' });
+//         }
+//         const passwordMatch = verifyPassword(password, user.salt, user.password);
+//         console.log('Password from request:', password); // Log the password sent in the request
+//         console.log('Stored hashed password:', user.password); // Log the stored hashed password
+
+//         if (!passwordMatch) {
+//             console.log('Wrong password'); // Log if password is incorrect
+//             return res.status(401).json({ error: 'Wrong password' });
+//         }
+
 //         const token = v4();
 //         const redisKey = `Auth_${token}`;
 //         const redisValue = user._id.toString();
 //         await redisClient.set(redisKey, redisValue, 120000);
-    
-//         return res.status(201).json({message: 'Login succesfull', token: token, role: user.role});
-//     } catch(err){
-//         return res.status(400).json({message: "error processing request"});
+
+//         console.log('Login successful, token generated:', token); // Log the successful login
+//         return res.status(201).json({ message: 'Login successful', token: token, role: user.role });
+//     } catch (err) {
+//         console.error('Error processing request:', err); // Log any errors
+//         return res.status(400).json({ message: "error processing request" });
 //     }
-    
 // }
-export async function Login(req, res) {
-    try {
-        const { phonenumber, password } = req.body;
-
-        const user = await userModel.getUserWithPhone(phonenumber);
-        if (!user) {
-            console.log('User not found'); // Log if user not found
-            return res.status(404).json({ error: 'User with the details is not registered' });
-        }
-
-        const loginHash = encryptPassword(password, user.salt);
-        console.log('Password from request:', password); // Log the password sent in the request
-        console.log('Hashed password from request:', loginHash); // Log the hashed password sent in the request
-        console.log('Stored hashed password:', user.password); // Log the stored hashed password
-
-        if (loginHash !== user.password) {
-            console.log('Wrong password'); // Log if password is incorrect
-            return res.status(401).json({ error: 'Wrong password' });
-        }
-
-        const token = v4();
-        const redisKey = `Auth_${token}`;
-        const redisValue = user._id.toString();
-        await redisClient.set(redisKey, redisValue, 120000);
-
-        console.log('Login successful, token generated:', token); // Log the successful login
-        return res.status(201).json({ message: 'Login successful', token: token, role: user.role });
-    } catch (err) {
-        console.error('Error processing request:', err); // Log any errors
-        return res.status(400).json({ message: "error processing request" });
-    }
-}
 
 export async function ChangeUserPassword(req, res){
     const { oldpassword, newPassword } = req.body;

@@ -87,7 +87,7 @@ const data = [
         name: "Seated Calf Raise",
         bodyPart: "lower legs",
         secondaryMuscles: ["Calves"],
-        gifUrl: ""
+        gifUrl: "https://media.giphy.com/media/6Ne9xjn9l5sSIA5L8F/giphy.gif?cid=790b761179n2knwgaeyligwrempw30g7j9ssu0kvyioyhg1f&ep=v1_gifs_search&rid=giphy.gif&ct=g"
       },
       {
         name: "Standing Calf Raise",
