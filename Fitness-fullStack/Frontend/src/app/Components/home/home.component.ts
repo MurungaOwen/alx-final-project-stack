@@ -31,12 +31,14 @@ export class HomeComponent implements OnInit {
   daysPerWeek: number = 0; // Placeholder for days per week
   fitnessPrograms: any[] = []; // Placeholder for fitness program list
   selectedProgramId: string | null = null;
+  userId: any;
 
 
   constructor(private http: HttpClient, private fitnessProgramService: FitnessProgramServiceService, private featuredWorkoutsService: FeaturedWorkoutsService, private router: Router, private tokenStorage: TokenStorageService) { }
   
   ngOnInit(): void {
     this.loadFeaturedWorkouts();
+    this.userId = this.tokenStorage.getUserId();
   }
 
 
@@ -63,10 +65,10 @@ export class HomeComponent implements OnInit {
   createFitnessProgram(): void {
     this.creatingProgram = true; // Show create program form
   
-    const userId = this.tokenStorage.getUserId(); // Retrieve user ID from TokenStorageService
+     // Retrieve user ID from TokenStorageService
 
     const programData = {
-      userId: userId,
+      userId: this.userId,
       programName: this.newProgramName,
       bodyPart: this.selectedBodyPart,
       hoursPerWeek: this.hoursPerWeek,
@@ -85,7 +87,7 @@ export class HomeComponent implements OnInit {
   
 
   saveFitnessProgram(): void {
-    this.fitnessProgramService.createFitnessProgram(this.newProgramName, this.selectedBodyPart, this.hoursPerWeek, this.daysPerWeek)
+    this.fitnessProgramService.createFitnessProgram(this.userId, this.newProgramName, this.selectedBodyPart, this.hoursPerWeek, this.daysPerWeek)
       .subscribe((data: any) => {
         this.fitnessProgram = data;
         this.creatingProgram = false; // Hide create program form
@@ -96,7 +98,7 @@ export class HomeComponent implements OnInit {
   }
 
  viewPrograms(): void {
-    this.fitnessProgramService.getFitnessPrograms()
+    this.fitnessProgramService.getFitnessPrograms(this.userId)
       .subscribe(
         (programs: any[]) => {
           this.fitnessPrograms = programs;

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TokenStorageService } from '../../_services/token-storage.service';
 import { switchMap, catchError, Observable, throwError } from 'rxjs';
 import { FitnessProgramServiceService } from '../../_services/fitness-program-service.service';
 
@@ -18,16 +19,18 @@ export class FitnessProgramsComponent implements OnInit {
   editingProgram: any = null;
   items$!: Observable<any[]>;
   totalItemsCount$!: Observable<number>;
+  userId: any;
 
-  constructor(private http: HttpClient,   private fitnessProgramService: FitnessProgramServiceService
+  constructor(private http: HttpClient,   private fitnessProgramService: FitnessProgramServiceService, private tokenStorage: TokenStorageService
   ) { }
 
   ngOnInit(): void {
+    this.userId = this.tokenStorage.getUserId();
     this.loadFitnessPrograms();
   }
 
   loadFitnessPrograms(): void {
-    const url = 'http://localhost:3000/fitness_programs'; // Adjusted port number
+    const url = `http://127.0.0.1:3000/fitness_program/${this.userId}`; // Adjusted port number
   
     this.items$ = this.http.get<any[]>(url).pipe(
       catchError((error) => {
