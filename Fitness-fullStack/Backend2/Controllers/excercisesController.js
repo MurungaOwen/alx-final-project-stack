@@ -38,3 +38,31 @@ export async function getFitnessProgram(req, res){
 
     return res.status(200).json(programs);
 }
+
+export async function removeProgram(req, res){
+    const { program_id } = req.params;
+
+    if (!program_id) return res.status(400).json({error: 'Program id is missing'});
+
+    const deleted = await fitnessProgram.deleteProgram(program_id);
+
+    if (!deleted.acknowledged) return res.status(500).json({error: 'Program does not exist'});
+
+    return res.status(200).json({message: 'Program deleted succesfully'});
+}
+
+export async function editProgram(req, res){
+    const { program_id } = req.params;
+    const program = req.body;
+
+    if (!program_id) return res.status(400).json({error: 'Program id is missing'});
+    if (!program) return res.status(400).json({error: 'Update object is missing'});
+    
+    delete program._id;
+
+    const updated = await fitnessProgram.updateProgram(program_id, program);
+
+    if (!updated.acknowledged) return res.status(500).json({error: 'Program does not exist'});
+
+    return res.status(200).json({message: 'Program updated succesfully'});
+}

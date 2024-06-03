@@ -24,6 +24,18 @@ class FitnessProgram{
         const collection = db.collection(this.collection);
         return await collection.find({user_id: new ObjectId(userId)}).toArray();
     }
+
+    async deleteProgram(programId){
+        const db = await getDatabase();
+        const collection = db.collection(this.collection);
+        return await collection.deleteOne({_id: new ObjectId(programId)});
+    }
+
+    async updateProgram(programId, update){
+        const db = await getDatabase();
+        const collection = db.collection(this.collection);
+        return await collection.updateOne({_id: new ObjectId(programId)}, {$set: update});
+    }
 }
 
 const fitnessProgram = new FitnessProgram();

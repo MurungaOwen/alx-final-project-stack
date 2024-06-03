@@ -5,24 +5,24 @@
     <div *ngIf="items$ | async as items">
       <div *ngFor="let program of items" class="program-item">
         <div *ngIf="editingProgram !== program; else editForm">
-          <div>{{ program.program_name }}</div>
-          <div>{{ program.body_part }}</div>
-          <div>Days Per Week: {{ program.days_per_week }}</div>
-          <div>Hours Per Week: {{ program.hours_per_week }}</div>
-          <div>Progress: {{ program.progress }}</div>
+          <div><strong>name: </strong>{{ program.programName }}</div>
+          <div><strong>Body part: </strong>{{ program.bodyPart }}</div>
+          <div><strong>Days Per Week: </strong>{{ program.daysPerWeek }}</div>
+          <div><strong>Hours Per Week: </strong>{{ program.hoursPerWeek }}</div>
+          <div><strong>Progress: </strong>{{ program.progress }}</div>
           <button (click)="editProgram(program)">Edit</button>
           <button (click)="deleteProgram(program)">Delete</button>
         </div>
         <ng-template #editForm>
           <div>
             <label for="programName">Program Name:</label>
-            <input id="programName" [(ngModel)]="program.program_name" placeholder="Program Name">
+            <input id="programName" [(ngModel)]="program.programName" placeholder="Program Name">
             <label for="bodyPart">Body Part:</label>
-            <input id="bodyPart" [(ngModel)]="program.body_part" placeholder="Body Part">
+            <input id="bodyPart" [(ngModel)]="program.bodyPart" placeholder="Body Part">
             <label for="daysPerWeek">Days Per Week:</label>
-            <input id="daysPerWeek" [(ngModel)]="program.days_per_week" placeholder="Days Per Week">
+            <input id="daysPerWeek" [(ngModel)]="program.daysPerWeek" placeholder="Days Per Week">
             <label for="hoursPerWeek">Hours Per Week:</label>
-            <input id="hoursPerWeek" [(ngModel)]="program.hours_per_week" placeholder="Hours Per Week">
+            <input id="hoursPerWeek" [(ngModel)]="program.hoursPerWeek" placeholder="Hours Per Week">
             <button (click)="saveChanges(program)">Save</button>
             <button (click)="editProgram(null)">Cancel</button>
           </div>

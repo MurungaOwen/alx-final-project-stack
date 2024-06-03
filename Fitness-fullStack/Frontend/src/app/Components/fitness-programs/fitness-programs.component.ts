@@ -48,7 +48,7 @@ export class FitnessProgramsComponent implements OnInit {
 
   saveChanges(program: any): void {
     const programId = program._id;
-    const url = `http://localhost:100/fitness_program/${programId}`;
+    const url = `http://127.0.0.1:3000/fitness_program/${programId}`;
 
     this.http.put<any>(url, program).pipe(
       catchError((error) => {
@@ -58,13 +58,13 @@ export class FitnessProgramsComponent implements OnInit {
     ).subscribe(() => {
       console.log('Program updated successfully');
       this.loadFitnessPrograms(); // Reload programs to reflect changes
-      this.editingProgram = null; // Reset editing mode
+      this.editingProgram = true; // Reset editing mode
     });
   }
 
   deleteProgram(program: any): void {
     const programId = program._id;
-    const url = `http://localhost:100c/fitness_program/${programId}`;
+    const url = `http://localhost:3000/fitness_program/${programId}`;
 
     this.http.delete<any>(url).pipe(
       catchError((error) => {
